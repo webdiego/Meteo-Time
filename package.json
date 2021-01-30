@@ -1,0 +1,25 @@
+{
+  "name": "weather-app-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^5.0.0",
+    "postcss-import": "^14.0.0",
+    "tailwindcss": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webdiego/Meteo-Time.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webdiego/Meteo-Time/issues"
+  },
+  "homepage": "https://github.com/webdiego/Meteo-Time#readme"
+}
