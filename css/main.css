@@ -23,7 +23,7 @@ body {
 
 .container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: white;
   display: flex;
   align-items: center;
@@ -32,10 +32,25 @@ body {
 }
 
 .app {
-  width: 95%;
+  width: 100%;
   height: 95%;
-  background: linear-gradient(41deg, #03d6ff 0%, #3766c3 100%);
   border-radius: 50px;
+  align-self: center;
+}
+
+@media only screen and (max-width: 940px) {
+  .app {
+    width: 95%;
+    height: 97%;
+  }
+}
+
+.bg-day {
+  background: linear-gradient(41deg, #03d6ff 0%, #3766c3 100%);
+}
+
+.bg-night {
+  background: linear-gradient(41deg, #3766C3 0%, #061E48 100%);
 }
 
 .bar {
@@ -43,9 +58,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+.title {
+  width: 100%;
+  transform: rotate(-10deg);
+  font-size: 2rem;
 }
 
 .title-span {
+  transform: translateY(20px);
   font-size: 1rem;
 }
 
@@ -58,17 +81,13 @@ body {
   margin-left: 1rem;
   display: flex;
   align-items: center;
+  outline: 0;
 }
 
-.geolocal {
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  background-color: white;
-  position: relative;
-  margin-right: 1rem;
-  display: flex;
-  align-items: center;
+@media only screen and (max-width: 640px) {
+  .search {
+    transform: translateY(60px);
+  }
 }
 
 .search-btn {
@@ -93,6 +112,10 @@ body {
   font-family: "Brandon-Black";
 }
 
+.search-icon {
+  color: #3766C3;
+}
+
 .search:hover > .search-input {
   width: 250px;
   padding: 0 7px;
@@ -100,7 +123,132 @@ body {
   font-size: 1.2rem;
 }
 
-.search-lens {
+.search:focus, .search:active, .search:hover {
+  outline: none 0 !important;
+}
+
+.geolocal {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 640px) {
+  .geolocal {
+    transform: translateY(60px);
+  }
+}
+
+.geolocal-icon {
   color: #3766C3;
+}
+
+.main {
+  display: flex;
+}
+
+@media only screen and (max-width: 940px) {
+  .main {
+    flex-direction: column;
+  }
+}
+
+.location-city-text {
+  font-size: 4rem;
+  transform: translateY(70px);
+}
+
+@media only screen and (max-width: 940px) {
+  .location-city-text {
+    transform: translateY(-20px);
+  }
+}
+
+.location-temperature-text {
+  font-size: 14rem;
+}
+
+@media only screen and (max-width: 940px) {
+  .location-temperature-text {
+    font-size: 7rem;
+    transform: translateY(-60px);
+  }
+}
+
+.location-temperature-degree {
+  transform: translateY(50px);
+  font-size: 3rem;
+}
+
+@media only screen and (max-width: 940px) {
+  .location-temperature-degree {
+    font-size: 1.5rem;
+  }
+}
+
+.weather-icon {
+  transform: translateY(60px);
+  width: 40rem;
+}
+
+@media only screen and (max-width: 940px) {
+  .weather-icon {
+    width: 17rem;
+    transform: translateY(-90px);
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .details {
+    transform: translateY(-100px);
+  }
+}
+
+.details-title {
+  font-size: 1.5rem;
+}
+
+.next {
+  width: 6rem;
+  height: 10rem;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.285);
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 940px) {
+  .next {
+    width: 5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+}
+
+.next-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  transform: rotate(-5deg);
+  margin-bottom: 2rem;
+}
+
+.next-img {
+  width: 6rem;
+}
+
+@media only screen and (max-width: 940px) {
+  .next-img {
+    width: 4rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */

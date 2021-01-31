@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "node-sass": "^5.0.0",
-    "postcss-import": "^14.0.0",
-    "tailwindcss": "^2.0.2"
+    "node-sass": "^5.0.0"
   },
   "devDependencies": {},
   "scripts": {

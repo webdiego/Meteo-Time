@@ -6,25 +6,31 @@
   <title>Weather APP</title>
   <link rel="stylesheet" href="./css/main.css">
   <script src="https://kit.fontawesome.com/6340a0a222.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <!-- <script src="./js/script.js"></script> -->
 </head>
 <style>
   
 </style>
 <body>
-  <div class="container ">
-    <div class="app rounded" >
+  <div class="container mx-auto ">
+    <div class="app bg-day mt-5 mb-5" >
+   
+
+      <!-- Bar -->
     <div class="bar">
       <!-- search -->
       <div class="search">
       <input class="search-input" type="text" placeholder="Search your city">
       <a href="#" class="search-btn">
-        <i class="fas fa-search search-lens"></i>
+        <i class="fas fa-search search-icon"></i>
       </a>    
       </div>
+
       <!-- Title -->
-      <div class="main">
-        <h1 class="title">METEO <span class="title-span">TIME</span></h1>
+      <div class="titles flex ">
+        <h1 class="title">METEO</h1>
+        <span class="title-span ">TIME</span>
       </div>
 
       <!-- Geolocal -->
@@ -32,11 +38,109 @@
         
           <input class="search-input" type="text" placeholder="Search your city">
           <a href="#" class="search-btn">
-            <i class="fas fa-location-arrow search-lens"></i>
+            <i class="fas fa-location-arrow geolocal-icon"></i>
           </a>    
           
       </div>
+
+
     </div>
+     <!-- MAIN -->
+    <div class="main  ">
+
+
+      <div class="location flex flex-col flex-1 justify-center items-center">
+
+        <div class="location-city">
+          <h2 class="location-city-text">New Delhi</h2>
+        </div>
+
+        <div class="location-temperature flex">
+          <h2 class="location-temperature-text">23</h2><span class="location-temperature-degree">°</span>
+        </div>
+      </div>
+
+
+
+      <div class="weather flex-1">
+        <div class="weather-icons flex items-center justify-center">
+          <img class="weather-icon" src="./img/sun.png" alt="">
+        </div>
+      </div>
+
+      <div class="details flex-1 flex items-center justify-evenly">
+
+        <div class="details-weather flex items-center justify-center flex-col">
+
+          <div class="details-humidity flex flex-col items-center justify-center">
+            <h3 class="details-title">Humidity</h3>
+            <h4>50%</h4>
+  
+          </div>
+
+          <div class="details-wind flex flex-col items-center justify-center mt-11">
+            <h3 class="details-title">Wind</h3>
+            <h4>30km/h</h4>
+  
+          </div>
+        </div>
+         
+
+        <div class="details-sun flex items-center justify-center flex-col">
+
+          <div class="details-sunrise flex flex-col items-center justify-center">
+            <h3 class="details-title">Sunrise</h3>
+            <h4 class="details-sunrise-time" >5.30am</h4>
+  
+          </div>
+          <div class="details-sunset  flex flex-col items-center justify-center mt-11 ">
+            <h3 class="details-title">Sunset</h3>
+            <h4 class="details-sunset-time">8.40pm</h4>
+  
+          </div>
+        </div>
+
+      </div>
+    </div>
+       
+
+    <!-- Next days -->
+    <div class="next-title">
+      <h2 >Next 5 Days</h2>
+    </div>
+
+  <div class="next-days flex-row flex mb-10 justify-center items-center  ">
+
+
+    <div class="next">
+      <img class="next-img"  src="./img/sun.png" alt="">
+      <h3 class="next-day">Thu</h3>
+      <h4>9°</h4>
+    </div>
+
+    <div class="next">
+      <img class="next-img"  src="./img/sun clouds.4png.png" alt="">
+      <h3 class="next-day">Thu</h3>
+      <h4>9°</h4>
+    </div>
+
+    <div class="next">
+      <img class="next-img"  src="./img/sunrain.png" alt="">
+      <h3 class="next-day">Thu</h3>
+      <h4>9°</h4>
+    </div>
+    <div class="next">
+      <img class="next-img"  src="./img/thunderstorm2.png" alt="">
+      <h3 class="next-day">Thu</h3>
+      <h4>9°</h4>
+    </div>
+    <div class="next">
+      <img class="next-img"  src="./img/heavyrain.png" alt="">
+      <h3 class="next-day">Thu</h3>
+      <h4>9°</h4>
+    </div>
+  </div>
+
     </div>
 
   </div>

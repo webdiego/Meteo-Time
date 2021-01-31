@@ -1,0 +1,65 @@
+.main{
+  display: flex;
+  @media only screen and (max-width: 940px) {
+		flex-direction: column;
+	}
+}
+
+
+.location{
+ 
+  &-city-text{
+  font-size: 4rem;
+  transform: translateY(70px);
+  @media only screen and (max-width: 940px) {
+    transform: translateY(-20px);
+
+   }
+  }
+
+  &-temperature{
+   
+    &-text{
+      font-size: 14rem;
+      @media only screen and (max-width: 940px) {
+       font-size: 7rem;
+       transform: translateY(-60px);
+
+      }
+    }
+   &-degree{
+     transform: translateY(50px);
+     font-size: 3rem;
+     @media only screen and (max-width: 940px) {
+      font-size: 1.5rem;
+      
+    }
+  }
+  }
+ 
+}
+
+.weather{
+
+
+  &-icon{
+    transform: translateY(60px);
+    width: 40rem;
+
+    @media only screen and (max-width: 940px) {
+      width: 17rem;
+      transform: translateY(-90px);
+    }
+  }
+}
+
+.details{
+  @media only screen and (max-width: 940px) {
+		transform: translateY(-100px);
+	}
+  
+  &-title{
+    font-size: 1.5rem;
+  }
+
+}
