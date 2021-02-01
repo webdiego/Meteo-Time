@@ -1,9 +1,15 @@
+//API KEY
 const apiKey = "n9YazxwN70lUO9Te7hZZYBOTYe9EXxJs";
+
+//LOCATION UI
 const locationCity = document.querySelector(".location-city-text");
 const locationTemperature = document.querySelector(
   ".location-temperature-text"
 );
 const geolocalBtn = document.querySelector(".geolocal-icon");
+const searchBtn = document.querySelector('.search-icon')
+
+//UI ELEMENTS
 const cover = document.querySelector(".cover");
 const loading = document.querySelector(".loading");
 
@@ -81,3 +87,9 @@ const geolocal = function () {
 };
 
 geolocalBtn.addEventListener("click", geolocal);
+
+searchBtn.addEventListener('click' , function(e){
+  console.log(e);
+  loading.classList.add("none");
+    cover.classList.remove("none");
+})
