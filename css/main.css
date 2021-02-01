@@ -38,6 +38,10 @@ body {
   }
 }
 
+.none {
+  visibility: hidden;
+}
+
 .bg-day {
   background: linear-gradient(41deg, #03abff 0%, #3766c3 100%);
 }
@@ -77,7 +81,7 @@ body {
   outline: 0;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 940px) {
   .search {
     transform: translateY(60px);
   }
@@ -131,7 +135,7 @@ body {
   align-items: center;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 940px) {
   .geolocal {
     transform: translateY(60px);
   }
@@ -163,6 +167,9 @@ body {
 }
 
 .location-temperature-text {
+  background: -webkit-linear-gradient(white, rgba(209, 209, 209, 0.292));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 14rem;
 }
 
@@ -185,7 +192,6 @@ body {
 }
 
 .weather-icon {
-  transform: translateY(60px);
   width: 40rem;
 }
 

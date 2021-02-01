@@ -1,43 +1,48 @@
-
 // const apiKey = "n9YazxwN70lUO9Te7hZZYBOTYe9EXxJs";
+const locationCity = document.querySelector(".location-city-text");
+const locationTemperature = document.querySelector(
+  ".location-temperature-text"
+);
+const geolocalBtn = document.querySelector(".geolocal-icon");
+const cover = document.querySelector('.cover')
+console.log(geolocalBtn);
+// getWeather('milan')
 
-// const getCity = async function(city){
-//   try {
-//     const res = await fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`);
+const firstUpper = function (word) {
+  return word[0].toUpperCase() + word.slice(1);
+};
 
-//     const data = await res.json();
-    
-//     console.log(data[0]);
-//     getWeatherToday(data[0].Key)
-//   }catch(err){
-//     console.log(err)
-//   }
+//GET POSITION GEOLOCALIZATION
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
 
-// }
+//GET CITY FROM LOCATIZATION
+const getCity = async function (lat, lng) {
+  // cover.classList.add('none')
+  try {
+    const geo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    if (!geo.ok) throw new Error("Getting problem get location");
+    const dataGeo = await geo.json();
+    const city = dataGeo.city.toLowerCase();
+    locationCity.innerHTML = firstUpper(city);
+    locationTemperature.textContent = 23;
 
-// getCity('rome')
+    //Removing cover from
+    cover.classList.remove('none')
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-// const getWeatherToday = async function(Key){
-//   try{
-//    const res = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${Key}?apikey=${apiKey}`);
-//    const data = await res.json();
-//    console.log(data);
-//   }catch(err){
-//     console.log(err);
-//   }
-//  }
- 
+const geolocal = function () {
+  getPosition().then((res) => {
+    const { latitude: lat, longitude: lng } = res.coords;
 
-// const getWeather5Days = async function(Key){
-//  try{
-//   const res = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${Key}?apikey=${apiKey}`);
-//   const data = await res.json();
-//   console.log(data);
-//  }catch(err){
-//    console.log(err);
-//  }
-// }
+    getCity(lat, lng);
+  });
+};
 
-// getWeatherToday('214046')
-// getWeather5Days('214046')
-
+geolocalBtn.addEventListener("click", geolocal);

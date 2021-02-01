@@ -10,6 +10,10 @@
  
   &-city-text{
   font-size: 4rem;
+  // background: -webkit-linear-gradient(rgb(255, 255, 255), rgba(209, 209, 209, 0.292));
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  // text-transform: lowercase;
   transform: translateY(70px);
   @media only screen and (max-width: 940px) {
     transform: translateY(-20px);
@@ -20,6 +24,9 @@
   &-temperature{
    
     &-text{
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgba(209, 209, 209, 0.292));
+    -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
       font-size: 14rem;
       @media only screen and (max-width: 940px) {
        font-size: 7rem;
@@ -43,7 +50,6 @@
 
 
   &-icon{
-    transform: translateY(60px);
     width: 40rem;
 
     @media only screen and (max-width: 1037px) {
