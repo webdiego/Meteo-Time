@@ -135,16 +135,31 @@ body {
   float: left;
   margin-left: 0.5rem;
   color: white;
-  transition: 0.4s;
+  transition: 0.8s;
   width: 0;
   text-align: center;
   border-radius: 30px;
   font-size: 1.2rem;
   font-family: "Brandon-Black";
+  position: absolute;
 }
 
 .search-icon {
   color: #3766C3;
+}
+
+.search-icon-2 {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0);
+  padding: .2rem;
+  border-radius: 0 50px 50px 0;
+}
+
+.search:hover {
+  border-radius: 50% 0 0 50%;
+  height: 1.8rem;
+  transition: ease-in 0.2s;
 }
 
 .search:hover > .search-input {
@@ -152,6 +167,28 @@ body {
   padding: 0 7px;
   color: #3766C3;
   font-size: 1.2rem;
+}
+
+.search:hover > .search-icon-2 {
+  color: #3766C3;
+  background-color: transparent;
+  transform: translateX(220px);
+  cursor: pointer;
+  transition: ease 0.8s;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 0, 0, 0);
+}
+
+.search:hover > .search-input::placeholder {
+  color: #3766C3;
+  transition: ease 0.8s;
+}
+
+.search:hover > .search-btn {
+  display: none;
+  transition: all 0.8s;
 }
 
 .search:focus, .search:active, .search:hover {

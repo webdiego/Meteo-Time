@@ -7,7 +7,7 @@ const locationTemperature = document.querySelector(
   ".location-temperature-text"
 );
 const geolocalBtn = document.querySelector(".geolocal-icon");
-const searchBtn = document.querySelector('.search-icon')
+const searchBtn = document.querySelector('.search-icon-2')
 
 //UI ELEMENTS
 const cover = document.querySelector(".cover");
@@ -58,7 +58,7 @@ const getCityApi = async function(city){
 
 }
 
-getCityApi('milan')
+// getCityApi('milan')
 
 // const getWeatherToday =async function () {
 //   try{
