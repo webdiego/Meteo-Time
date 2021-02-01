@@ -28,7 +28,7 @@ body {
 
 .app {
   width: 100%;
-  border-radius: 50px;
+  border-radius: 30px;
   align-self: center;
 }
 
@@ -48,6 +48,34 @@ body {
 
 .bg-night {
   background: linear-gradient(41deg, #3766C3 0%, #061E48 100%);
+}
+
+.loading {
+  font-size: 2rem;
+  transform: translateY(550%);
+}
+
+.ball {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.81);
+  margin-left: 1rem;
+}
+
+.rotate-right {
+  animation: rotate-right 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s infinite both;
+}
+
+@keyframes rotate-right {
+  0% {
+    transform: rotate(0);
+    transform-origin: right;
+  }
+  100% {
+    transform: rotate(360deg);
+    transform-origin: right;
+  }
 }
 
 .bar {

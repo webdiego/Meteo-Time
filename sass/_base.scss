@@ -25,7 +25,7 @@ body{
 .app{
   width: 100%;
   
-  border-radius: 50px;
+  border-radius: 30px;
   align-self: center;
   @media only screen and (max-width: 940px) {
     width: 95%;
@@ -43,4 +43,19 @@ body{
   background: linear-gradient(41deg, $light-night-blue 0%, $dark-night-blue 100%); 
 
 }
+//LOADING geolocalization
+.loading{
+  font-size: 2rem;
+  
+  transform: translateY(550%);
+}
+.ball{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.81);
+  margin-left: 1rem;
+}
+.rotate-right{-webkit-animation:rotate-right .8s cubic-bezier(.455,.03,.515,.955) 1s infinite both;animation:rotate-right .8s cubic-bezier(.455,.03,.515,.955) 1s infinite both}
 
+ @-webkit-keyframes rotate-right{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:right;transform-origin:right}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:right;transform-origin:right}}@keyframes rotate-right{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:right;transform-origin:right}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:right;transform-origin:right}}
