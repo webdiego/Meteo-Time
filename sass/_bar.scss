@@ -1,0 +1,90 @@
+.bar{
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+.title{
+  width: 100%;
+   transform: rotate(-10deg);
+   font-size: 2rem;
+  &-span{
+    transform: translateY(20px);
+    font-size: 1.5rem;
+  }
+}
+
+.search{
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  outline: 0;
+  
+  @media only screen and (max-width: 640px) {
+		transform: translateY(60px);
+	}
+  &-btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  &-input{
+    border: none;
+  background: white;
+  outline: none;
+  float: left;
+  margin-left: 0.5rem;
+  color: white;
+  transition: 0.4s;
+  width: 0;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-family: $font-family-base;
+  }
+  &-icon{
+    color: $dark-day-blue;
+  }
+}
+
+
+
+
+.search:hover > .search-input {
+  width: 250px;
+  padding: 0 7px;
+  color:  $dark-day-blue;
+  font-size: 1.2rem;
+}
+
+
+.search:focus,.search:active,.search:hover{
+  
+  outline: none 0 !important;
+}
+
+.geolocal{
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 640px) {
+		transform: translateY(60px);
+	}
+  &-icon{
+    color: $dark-day-blue;  
+
+  }
+}

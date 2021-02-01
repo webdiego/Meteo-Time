@@ -1,6 +1,6 @@
 .next{
   width: 6rem;
-  height: 10rem;
+  height: 11rem;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.285);
   margin-left: 5rem;
@@ -20,8 +20,8 @@
     text-align: center;
     text-transform: uppercase;
     font-size: 2rem;
-    transform: rotate(-5deg);
     margin-bottom: 2rem;
+    letter-spacing: .2rem;
   }
   &-img{
     width: 6rem;
@@ -33,3 +33,18 @@
 
 
 }
+
+.details{
+
+  @media only screen and (max-width: 1037px) {
+		transform: translateY(-90px);
+	}
+  &-title{
+    font-size: 2.7rem;
+  }
+
+  &-sub{
+    font-size: 1.5rem;
+  }
+}
+

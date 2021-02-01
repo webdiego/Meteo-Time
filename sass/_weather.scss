@@ -1,6 +1,6 @@
 .main{
   display: flex;
-  @media only screen and (max-width: 940px) {
+  @media only screen and (max-width: 1037px) {
 		flex-direction: column;
 	}
 }
@@ -46,20 +46,10 @@
     transform: translateY(60px);
     width: 40rem;
 
-    @media only screen and (max-width: 940px) {
+    @media only screen and (max-width: 1037px) {
       width: 17rem;
       transform: translateY(-90px);
     }
   }
 }
 
-.details{
-  @media only screen and (max-width: 940px) {
-		transform: translateY(-100px);
-	}
-  
-  &-title{
-    font-size: 1.5rem;
-  }
-
-}

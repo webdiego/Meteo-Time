@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Brandon-Black';
+  src: url("../font/brandon-grotesque-black.woff") format("woff"), url("../font/brandon-grotesque-black.ttf") format("ttf");
+}
+
 *,
 *:before,
 *:after {
@@ -9,16 +14,6 @@
 body {
   font-size: 62,5%;
   color: white;
-}
-
-@font-face {
-  font-family: 'Brandon-Black';
-  src: url("../font/brandon-grotesque-black.woff") format("woff"), url("../font/brandon-grotesque-black.ttf") format("ttf");
-}
-
-@font-face {
-  font-family: 'Brandon-Light';
-  src: url("../font/brandon-grotesque-light.woff") format("woff"), url("../font/brandon-grotesque-light.otf") format("ttf");
 }
 
 .container {
@@ -33,7 +28,6 @@ body {
 
 .app {
   width: 100%;
-  height: 95%;
   border-radius: 50px;
   align-self: center;
 }
@@ -41,12 +35,11 @@ body {
 @media only screen and (max-width: 940px) {
   .app {
     width: 95%;
-    height: 97%;
   }
 }
 
 .bg-day {
-  background: linear-gradient(41deg, #03d6ff 0%, #3766c3 100%);
+  background: linear-gradient(41deg, #03abff 0%, #3766c3 100%);
 }
 
 .bg-night {
@@ -69,7 +62,7 @@ body {
 
 .title-span {
   transform: translateY(20px);
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .search {
@@ -152,7 +145,7 @@ body {
   display: flex;
 }
 
-@media only screen and (max-width: 940px) {
+@media only screen and (max-width: 1037px) {
   .main {
     flex-direction: column;
   }
@@ -196,26 +189,16 @@ body {
   width: 40rem;
 }
 
-@media only screen and (max-width: 940px) {
+@media only screen and (max-width: 1037px) {
   .weather-icon {
     width: 17rem;
     transform: translateY(-90px);
   }
 }
 
-@media only screen and (max-width: 940px) {
-  .details {
-    transform: translateY(-100px);
-  }
-}
-
-.details-title {
-  font-size: 1.5rem;
-}
-
 .next {
   width: 6rem;
-  height: 10rem;
+  height: 11rem;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.285);
   margin-left: 5rem;
@@ -238,8 +221,8 @@ body {
   text-align: center;
   text-transform: uppercase;
   font-size: 2rem;
-  transform: rotate(-5deg);
   margin-bottom: 2rem;
+  letter-spacing: .2rem;
 }
 
 .next-img {
@@ -250,5 +233,19 @@ body {
   .next-img {
     width: 4rem;
   }
+}
+
+@media only screen and (max-width: 1037px) {
+  .details {
+    transform: translateY(-90px);
+  }
+}
+
+.details-title {
+  font-size: 2.7rem;
+}
+
+.details-sub {
+  font-size: 1.5rem;
 }
 /*# sourceMappingURL=main.css.map */
