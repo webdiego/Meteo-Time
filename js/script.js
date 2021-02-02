@@ -118,8 +118,10 @@ const getCityApi = async function (city) {
     const {
       location: { name: name },
     } = resToday;
+    console.log(resToday);
+
     locationCity.innerHTML = `${name}`;
-    //ADD HUMIDITY ,WIND,DAYTIME
+    //ADD HUMIDITY ,WIND,DAYTIME AND ICONS
     const {
       current: { humidity: humidity, wind_kph: wind, is_day: day },
     } = resToday;
@@ -157,8 +159,6 @@ const getCity = async function (lat, lng) {
     const {
       poi: { addr_city: cityGeo, addr_suburb: subCity },
     } = dataGeo;
-    // const city = dataGeo.city.toLowerCase();
-
     getCityApi(cityGeo);
     locationCity.innerHTML = subCity;
 
