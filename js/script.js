@@ -100,7 +100,7 @@ const getCityApi = async function (city) {
     addLoad();
     //Current weather
     const dataToday = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${apiKey2}&q=${city}`
+      `https://api.weatherapi.com/v1/current.json?key=${apiKey2}&q=${city}`
     );
     const resToday = await dataToday.json();
     console.log(resToday);
@@ -129,7 +129,7 @@ const getCityApi = async function (city) {
 
     //Astronomy - ADD Sunrise/Sunset
     const data = await fetch(
-      `http://api.weatherapi.com/v1/astronomy.json?key=${apiKey2}&q=${city}`
+      `https://api.weatherapi.com/v1/astronomy.json?key=${apiKey2}&q=${city}`
     );
     const res = await data.json();
     const {
