@@ -38,9 +38,11 @@ body{
 .bg-day{
   background: linear-gradient(41deg, rgb(3, 171, 255) 0%, rgba(55,102,195,1) 100%); 
 
+
 }
 .bg-night{
   background: linear-gradient(41deg, $light-night-blue 0%, $dark-night-blue 100%); 
+  
 
 }
 //LOADING geolocalization
