@@ -38,6 +38,16 @@ body {
   }
 }
 
+.cover {
+  transform: translateY(-80px);
+}
+
+@media only screen and (max-width: 940px) {
+  .cover {
+    transform: translateY(0);
+  }
+}
+
 .none {
   visibility: hidden;
 }
@@ -260,7 +270,8 @@ body {
 
 @media only screen and (max-width: 940px) {
   .location-temperature-degree {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    transform: translateY(-30px);
   }
 }
 
@@ -276,9 +287,9 @@ body {
 }
 
 .next {
-  width: 6rem;
-  height: 11rem;
-  border-radius: 30px;
+  width: 8rem;
+  height: 15rem;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.285);
   margin-left: 5rem;
   display: flex;
@@ -290,7 +301,7 @@ body {
 
 @media only screen and (max-width: 940px) {
   .next {
-    width: 5rem;
+    width: 6rem;
     margin-left: .5rem;
     margin-right: .5rem;
   }
@@ -305,12 +316,33 @@ body {
 }
 
 .next-img {
-  width: 6rem;
+  width: 7rem;
 }
 
 @media only screen and (max-width: 940px) {
   .next-img {
     width: 4rem;
+  }
+}
+
+.next-day {
+  font-size: 1.6rem;
+  letter-spacing: .2rem;
+}
+
+@media only screen and (max-width: 940px) {
+  .next-day {
+    font-size: 1.2rem;
+  }
+}
+
+.next-deg {
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 940px) {
+  .next-deg {
+    font-size: 1rem;
   }
 }
 

@@ -31,6 +31,12 @@ body{
     width: 95%;
 	}
 }
+.cover{
+  transform: translateY(-80px);
+  @media only screen and (max-width: 940px) {
+    transform: translateY(0);
+	}
+}
  .none{
    visibility: hidden;
  }
