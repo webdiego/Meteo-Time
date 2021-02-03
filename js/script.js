@@ -26,7 +26,7 @@ const nextIcon3 =document.querySelector('.next-img-3')
 const app = document.querySelector(".app");
 //SEARCH LOCATION BTN
 const geoLocalBtn = document.querySelector(".geolocal-icon");
-const searchBtn = document.querySelector(".search-icon-2");
+const searchBtn = document.querySelector(".search-icon");
 const searchInput = document.querySelector(".search-input");
 
 //UI ELEMENTS

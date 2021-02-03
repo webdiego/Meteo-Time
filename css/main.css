@@ -147,7 +147,7 @@ body {
   margin-left: 0.5rem;
   color: white;
   transition: 0.8s;
-  width: 100px;
+  width: 250px;
   text-align: center;
   border-radius: 30px;
   font-size: 1.2rem;
@@ -181,28 +181,6 @@ body {
   font-size: 1.2rem;
 }
 
-.search:hover > .search-icon-2 {
-  color: #3766C3;
-  background-color: transparent;
-  transform: translateX(220px);
-  cursor: pointer;
-  transition: ease 0.8s;
-}
-
-.search-input::placeholder {
-  color: rgba(255, 0, 0, 0);
-}
-
-.search:hover > .search-input::placeholder {
-  color: #3766C3;
-  transition: ease 0.8s;
-}
-
-.search:hover > .search-btn {
-  display: none;
-  transition: all 0.8s;
-}
-
 .search:focus, .search:active, .search:hover {
   outline: none 0 !important;
 }
@@ -212,10 +190,9 @@ body {
   width: 2rem;
   border-radius: 50%;
   background-color: white;
-  position: relative;
   margin-right: 1rem;
   display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 940px) {
@@ -226,6 +203,9 @@ body {
 
 .geolocal-icon {
   color: #3766C3;
+  align-self: center;
+  justify-self: center;
+  margin-left: .4rem;
 }
 
 .main {
