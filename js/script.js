@@ -50,7 +50,7 @@ const weatherImgDay = function (el,text) {
     el.src = "./img/thunderstorm2.png"
   }else if(text.includes('clear')){
     el.src='./img/sun.png'
-  }else if(text.includes('Partly cloudy')){
+  }else if(text.includes('partly cloudy')){
     el.src = './img/sunclouds.png'
   }
 };
@@ -69,7 +69,10 @@ const weatherImgNight = function (el,text) {
     el.src='./img/moon.png'
   }
 };
-
+//RENDER ERROR
+const renderError = function(msg){
+  loading.innerHTML = msg
+}
 
 //*FUNCTION CAPITALIZE WORD
 const firstUpper = function (word) {
@@ -150,7 +153,7 @@ const getWeather = async function (city,subCity) {
     const {
       current: { humidity: humidity, wind_kph: wind, is_day: day },
     } = resToday;
-    isDayTime(day, weatherIcon ,text);
+    isDayTime(day, weatherIcon ,text.toLowerCase());
     humidityEl.innerHTML = `${humidity} %`;
     windEl.innerHTML = `${wind} Km/h`;
 
@@ -164,17 +167,17 @@ const getWeather = async function (city,subCity) {
     const day1 = new Date(date_1).toString().substr(0,3) 
     nextDay1.innerHTML = `${day1}`
     nextDayDeg1.innerHTML= `${temper_1} °`
-    weatherImgDay(nextIcon1, text_1)
+    weatherImgDay(nextIcon1, text_1.toLowerCase())
 
     const day2 = new Date(date_2).toString().substr(0,3) 
     nextDay2.innerHTML = `${day2}`
     nextDayDeg2.innerHTML= `${temper_2} °`
-    weatherImgDay(nextIcon2, text_2)
+    weatherImgDay(nextIcon2, text_2.toLowerCase())
 
     const day3 = new Date(date_3).toString().substr(0,3) 
     nextDay3.innerHTML = `${day3}`
     nextDayDeg3.innerHTML= `${temper_3} °`
-    weatherImgDay(nextIcon3, text_3)
+    weatherImgDay(nextIcon3, text_3.toLowerCase())
 
     //Astronomy - ADD Sunrise/Sunset
     const data = await fetch(`https://api.weatherapi.com/v1/astronomy.json?key=${apiKey}&q=${city}`);
@@ -188,6 +191,7 @@ const getWeather = async function (city,subCity) {
     removeLoad();
   } catch (err) {
     console.error(`Something wrong : ${err.message}🌚`);
+    renderError(`Something wrong 🌚 , Try again!`)
   }
 };
 
@@ -214,6 +218,8 @@ const getCity = async function (lat, lng) {
     // removeLoad();
   } catch (err) {
     console.error(`Error ${err.message} 😢`);
+    renderError(`Something wrong 😪 , Try again!`)
+
   }
 };
 
