@@ -60,13 +60,14 @@ body {
   background: linear-gradient(41deg, #3766C3 0%, #061E48 100%);
 }
 
-.loading {
+.loading-text {
   font-size: 2rem;
   transform: translateY(550%);
+  margin: 1rem;
 }
 
 @media only screen and (max-width: 640px) {
-  .loading {
+  .loading-text {
     font-size: 1.2rem;
   }
 }

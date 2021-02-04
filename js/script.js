@@ -44,6 +44,7 @@ const searchInput = document.querySelector(".search-input");
 //UI ELEMENTS
 const cover = document.querySelector(".cover");
 const loading = document.querySelector(".loading");
+const loading_text = document.querySelector('.loading-text')
 
 //-------------------------------------------------------------------
 
@@ -69,7 +70,7 @@ const weatherImgDay = function (el,text) {
     el.src = "./img/lightrain.png";
   }else if(text.includes('thundery' || 'thunder' )){
     el.src = "./img/thunderstorm2.png"
-  }else if(text.includes('clear')){
+  }else if(text.includes('sunny')){
     el.src='./img/sun.png'
   }else if(text.includes('partly cloudy')){
     el.src = './img/sunclouds.png'
@@ -107,7 +108,7 @@ const isDayTime = function (dayTime ,el, text) {
 };
 //RENDER ERROR
 const renderError = function(msg){
-  loading.innerHTML = msg
+  loading_text.innerHTML = msg
 }
 
 //*FUNCTION CAPITALIZE WORD
@@ -118,6 +119,10 @@ const firstUpper = function (word) {
 //*FUNCTIONS ADD OR REMOVE LOADING COVER
 const addLoad = function () {
   loading.classList.remove("none");
+  loading_text.innerHTML =`
+  <h2 class=" loading flex justify-center items-center">Searching your location
+  <span class="ball rotate-right"> </span>
+ </h2>`
   cover.classList.add("none");
 };
 const removeLoad = function () {
@@ -266,9 +271,8 @@ const geoLocal = function () {
 
     getCity(lat, lng);
   }).catch((err)=>{
-    addLoad()
     console.log(err);
-    renderError(`Where are you??🤨 Try again and active the geo-localization!`)
+    renderError(`Where are you??🤨 Try again!`)
   });
 };
 
@@ -276,12 +280,12 @@ geoLocalBtn.addEventListener("click", geoLocal);
 
 searchBtn_2.addEventListener("click", function (e) {
   e.preventDefault();
-  getWeather(searchInput.value);
+  getWeather(searchInput.value.trim());
 });
 searchInput.addEventListener("keydown", function (e) {
   
   console.log(e);
   if(e.keyCode === 13){
-    getWeather(searchInput.value);
+    getWeather(searchInput.value.trim());
   }
 });

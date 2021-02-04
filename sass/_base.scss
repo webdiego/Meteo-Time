@@ -51,10 +51,10 @@ body{
   
 }
 //LOADING geolocalization
-.loading{
-  font-size: 2rem;
-  
+.loading-text{
+  font-size: 2rem; 
   transform: translateY(550%);
+  margin: 1rem;
   @media only screen and (max-width: 640px) {
     font-size: 1.2rem;
 	}
