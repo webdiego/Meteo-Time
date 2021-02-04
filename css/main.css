@@ -249,8 +249,8 @@ body {
 
 @media only screen and (max-width: 1037px) {
   .weather-icon {
-    width: 17rem;
-    transform: translateY(-90px);
+    width: 22rem;
+    transform: translateY(-110px);
   }
 }
 
@@ -348,7 +348,7 @@ body {
 
 @media only screen and (max-width: 1037px) {
   .details {
-    transform: translateY(-90px);
+    transform: translateY(-70px);
   }
 }
 

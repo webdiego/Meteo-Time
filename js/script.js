@@ -59,11 +59,11 @@ searchBtn.addEventListener('click', function(){
 const weatherImgDay = function (el,text) {
   if (text.includes("rain" && "heavy" || 'Torrential' && 'rain')) {
     el.src = "./img/heavyrain.png";
-  } else if (text.includes("snow" || 'blizard' || 'freezing' && 'drizzle' || 'ice' )) {
+  } else if (text.includes("snow" || 'blizzard' || 'freezing' && 'drizzle' || 'ice' )) {
     el.src = "./img/snow.png";
   } else if (text.includes("light" && "rain")) {
     el.src = "./img/lightrain.png";
-  } else if (text.includes( 'overcast' || 'Mist' || 'fog')) {
+  } else if (text.includes( 'overcast' || 'mist' || 'fog')) {
     el.src = "./img/clouds.png";
   }else if(text.includes('light' && 'rain' || 'moderate' && 'rain' || 'light' && 'sleet')){
     el.src = "./img/lightrain.png";
@@ -76,11 +76,11 @@ const weatherImgDay = function (el,text) {
   }
 };
 const weatherImgNight = function (el,text) {
-  if (text.includes("rain" && "heavy" || 'Torrential' && 'rain')) {
+  if (text.includes("rain" && "heavy" || 'torrential' && 'rain')) {
     el.src = "./img/moonrain.png";
-  } else if (text.includes("snow" || 'blizard' || 'freezing' && 'drizzle' || 'ice' )) {
+  } else if (text.includes("snow" || 'blizzard' || 'freezing' && 'drizzle' || 'ice' )) {
     el.src = "./img/snow.png";
-  } else if (text.includes("cloudy" || 'overcast' || 'mist' || 'Fog')) {
+  } else if (text.includes("cloudy" || 'overcast' || 'mist' || 'fog')) {
     el.src = "./img/moonclouds.png";
   }else if(text.includes('light' ||'light' && 'rain' || 'moderate' && 'rain' || 'light' && 'sleet')){
     el.src = "./img/moonrain.png";
@@ -88,6 +88,21 @@ const weatherImgNight = function (el,text) {
     el.src = "./img/moonthunderstorm.png"
   }else if(text.includes('clear')){
     el.src='./img/moon.png'
+  }
+};
+
+//*FUNCTION DAY-NIGHT
+const isDayTime = function (dayTime ,el, text) {
+  if (dayTime === 1) {
+    weatherImgDay(el,text)
+    app.classList.remove("bg-night");
+    app.classList.add("bg-day");
+    weatherText.innerHTML = firstUpper(text)
+  } else if(dayTime === 0) {
+    weatherImgNight(el,text)
+    weatherText.innerHTML = firstUpper(text)
+    app.classList.remove("bg-day");
+    app.classList.add("bg-night");
   }
 };
 //RENDER ERROR
@@ -99,20 +114,7 @@ const renderError = function(msg){
 const firstUpper = function (word) {
   return word[0].toUpperCase() + word.slice(1);
 };
-//*FUNCTION DAY-NIGHT
-const isDayTime = function (dayTime ,el, text) {
-  if (dayTime === 1) {
-    weatherImgDay(el,text)
-    app.classList.remove("bg-night");
-    app.classList.add("bg-day");
-    weatherText.innerHTML = firstUpper(text)
-  } else if(dayTime === 0) {
-    weatherText.innerHTML = firstUpper(text)
-    weatherImgNight(el,text)
-    app.classList.remove("bg-day");
-    app.classList.add("bg-night");
-  }
-};
+
 //*FUNCTIONS ADD OR REMOVE LOADING COVER
 const addLoad = function () {
   loading.classList.remove("none");
@@ -123,16 +125,16 @@ const removeLoad = function () {
   cover.classList.remove("none");
 };
 
- const dateNameTemperature= function(day , number ,temperature){
-  const dates = new Date(day)
-  console.log(dates);
+//  const dateNameTemperature= function(day , number ,temperature){
+//   const dates = new Date(day)
+//   console.log(dates);
 
-  const dayName = dates.toString().substr(0,3)
-  console.log(dayName);
-  nextDay1.innerHTML = `${dayName}`
-  // `nextDayDeg${number}`.innerHTML= `${temperature} °`
+//   const dayName = dates.toString().substr(0,3)
+//   console.log(dayName);
+//   nextDay1.innerHTML = `${dayName}`
+//   // `nextDayDeg${number}`.innerHTML= `${temperature} °`
 
-}
+// }
 
 //*GET CORDS
 const getPosition = function () {
@@ -148,6 +150,7 @@ const getWeather = async function (city,subCity) {
     const dataToday = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`
     );
+    
     const resToday = await dataToday.json();
     console.log(resToday);
     const {
@@ -180,7 +183,9 @@ const getWeather = async function (city,subCity) {
     isDayTime(day, weatherIcon ,text.toLowerCase());
     humidityEl.innerHTML = `${humidity} %`;
     windEl.innerHTML = `${wind} Km/h`;
+    
 
+    //NEXT 3 DAYS
     const {forecast : { forecastday : [day_1 ,day_2,day_3]}} =resToday
    
     const {day:{avgtemp_c : temper_1, condition: {text:text_1}} , date: date_1} = day_1
@@ -208,7 +213,7 @@ const getWeather = async function (city,subCity) {
 
     weatherImgDay(nextIcon3, text_3.toLowerCase())
 
-    //Astronomy - ADD Sunrise/Sunset
+    //ASTRONOMY - SUNRISE / SUNSET
     const data = await fetch(`https://api.weatherapi.com/v1/astronomy.json?key=${apiKey}&q=${city}`);
     const res = await data.json();
     const {astronomy: { astro: { sunrise: sun, sunset: set },}} = res;
@@ -220,7 +225,7 @@ const getWeather = async function (city,subCity) {
     removeLoad();
   } catch (err) {
     console.error(`Something wrong : ${err.message}🌚`);
-    renderError(`Something wrong 🌚 , Try again!`)
+    renderError(`Something wrong 🌚, we have not found your city , Try again!`)
   }
 };
 
@@ -235,6 +240,7 @@ const getCity = async function (lat, lng) {
   try {
     const geo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
     if (!geo.ok) throw new Error("We are getting problem of geolocalization you😢");
+    if(!geo.ok) renderError("We are getting problem of geolocalization you😢")
     const dataGeo = await geo.json();
 
     const {
@@ -259,6 +265,10 @@ const geoLocal = function () {
     const { latitude: lat, longitude: lng } = res.coords;
 
     getCity(lat, lng);
+  }).catch((err)=>{
+    addLoad()
+    console.log(err);
+    renderError(`Where are you??🤨 Try again and active the geo-localization!`)
   });
 };
 
@@ -266,7 +276,12 @@ geoLocalBtn.addEventListener("click", geoLocal);
 
 searchBtn_2.addEventListener("click", function (e) {
   e.preventDefault();
-  
-  console.log(searchInput.value);
   getWeather(searchInput.value);
+});
+searchInput.addEventListener("keydown", function (e) {
+  
+  console.log(e);
+  if(e.keyCode === 13){
+    getWeather(searchInput.value);
+  }
 });
