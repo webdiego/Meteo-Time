@@ -94,6 +94,14 @@ body {
   }
 }
 
+.sliceCode-img {
+  width: 11rem;
+}
+
+.sliceCode-img:hover {
+  width: 12rem;
+}
+
 .bar {
   padding-top: 1rem;
   display: flex;
