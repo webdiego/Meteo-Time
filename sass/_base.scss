@@ -70,11 +70,14 @@ body{
 .rotate-right{-webkit-animation:rotate-right .8s cubic-bezier(.455,.03,.515,.955) 1s infinite both;animation:rotate-right .8s cubic-bezier(.455,.03,.515,.955) 1s infinite both}
 
  @-webkit-keyframes rotate-right{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:right;transform-origin:right}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:right;transform-origin:right}}@keyframes rotate-right{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:right;transform-origin:right}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:right;transform-origin:right}}
- 
- .sliceCode-img{
-   width: 11rem;
+ .sliceCode{
    
-   &:hover{
-     width: 12rem;
-   }
+   &-img{
+     width: 11rem;
+     
+     &:hover{
+       width: 12rem;
+     }
+
+ }
  }
