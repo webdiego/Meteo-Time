@@ -10,10 +10,6 @@
  
   &-city-text{
   font-size: 4rem;
-  // background: -webkit-linear-gradient(rgb(255, 255, 255), rgba(209, 209, 209, 0.292));
-  // -webkit-background-clip: text;
-  // -webkit-text-fill-color: transparent;
-  // text-transform: lowercase;
   transform: translateY(70px);
   @media only screen and (max-width: 940px) {
     transform: translateY(-20px);
@@ -57,6 +53,16 @@
     @media only screen and (max-width: 1037px) {
       width: 17rem;
       transform: translateY(-90px);
+    }
+  }
+
+  &-description{
+    font-size: 2rem;
+    transform: translateY(-50px);
+    @media only screen and (max-width: 1037px) {
+      font-size: 1.8rem;
+      transform: translateY(-120px);
+      align-self: center;
     }
   }
 }

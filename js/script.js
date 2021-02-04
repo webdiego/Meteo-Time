@@ -1,38 +1,59 @@
 //API KEY
 const apiKey = "5f1002c6c18243bc98814327210202";
 
-//LOCATION UI
+//LOCATION UI ELEMENTS
 const locationCity = document.querySelector(".location-city-text");
 const locationTemperature = document.querySelector(
   ".location-temperature-text"
 );
+const weatherText = document.querySelector('.weather-description')
 const sunRiseEl = document.querySelector(".details-sunrise");
 const sunSetEl = document.querySelector(".details-sunset");
 const humidityEl = document.querySelector(".details-humidity");
 const windEl = document.querySelector(".details-wind");
 const weatherIcon = document.querySelector(".weather-icon");
 
+//Next Day1 VARIABLE
 const nextDay1 = document.querySelector('.next-day-1')
 const nextDayDeg1 = document.querySelector('.next-deg-1')
+const nextText1 = document.querySelector('.next-text-1')
+//NEXT DAY2 VARIABLE
 const nextDay2 = document.querySelector('.next-day-2')
 const nextDayDeg2 = document.querySelector('.next-deg-2')
+const nextText2 = document.querySelector('.next-text-2')
+//NEXT DAY3 VARIABLE
+
 const nextDay3 =document.querySelector('.next-day-3')
 const nextDayDeg3 = document.querySelector('.next-deg-3')
+const nextText3 = document.querySelector('.next-text-3')
 
+//NEXT DAYS ICONS
 const nextIcon1 = document.querySelector('.next-img-1')
 const nextIcon2 = document.querySelector('.next-img-2')
 const nextIcon3 =document.querySelector('.next-img-3')
 
 const app = document.querySelector(".app");
-//SEARCH LOCATION BTN
+//SEARCH & LOCATION BTN
 const geoLocalBtn = document.querySelector(".geolocal-icon");
+
 const searchBtn = document.querySelector(".search-icon");
+const searchBtn_2 =document.querySelector(".search-icon-2");
+
 const searchInput = document.querySelector(".search-input");
 
 //UI ELEMENTS
 const cover = document.querySelector(".cover");
 const loading = document.querySelector(".loading");
 
+//-------------------------------------------------------------------
+
+//Toggle with the two icons
+searchBtn.addEventListener('click', function(){
+  searchBtn.classList.add('none')
+  searchInput.style.width = '200px'
+  searchInput.style.color ='#3766C3'
+  searchBtn_2.classList.remove('none')
+})
 
 //ICONS BASE ON DAY OR NIGHT AND CONDITIONS
 const weatherImgDay = function (el,text) {
@@ -81,10 +102,12 @@ const firstUpper = function (word) {
 //*FUNCTION DAY-NIGHT
 const isDayTime = function (dayTime ,el, text) {
   if (dayTime === 1) {
+    weatherImgDay(el,text)
     app.classList.remove("bg-night");
     app.classList.add("bg-day");
-    weatherImgDay(el,text)
+    weatherText.innerHTML = firstUpper(text)
   } else if(dayTime === 0) {
+    weatherText.innerHTML = firstUpper(text)
     weatherImgNight(el,text)
     app.classList.remove("bg-day");
     app.classList.add("bg-night");
@@ -153,6 +176,7 @@ const getWeather = async function (city,subCity) {
     const {
       current: { humidity: humidity, wind_kph: wind, is_day: day },
     } = resToday;
+
     isDayTime(day, weatherIcon ,text.toLowerCase());
     humidityEl.innerHTML = `${humidity} %`;
     windEl.innerHTML = `${wind} Km/h`;
@@ -167,16 +191,21 @@ const getWeather = async function (city,subCity) {
     const day1 = new Date(date_1).toString().substr(0,3) 
     nextDay1.innerHTML = `${day1}`
     nextDayDeg1.innerHTML= `${temper_1} °`
+    nextText1.innerHTML =`${text_1}`
+
     weatherImgDay(nextIcon1, text_1.toLowerCase())
 
     const day2 = new Date(date_2).toString().substr(0,3) 
     nextDay2.innerHTML = `${day2}`
     nextDayDeg2.innerHTML= `${temper_2} °`
+    nextText2.innerHTML =`${text_2}`
     weatherImgDay(nextIcon2, text_2.toLowerCase())
 
     const day3 = new Date(date_3).toString().substr(0,3) 
     nextDay3.innerHTML = `${day3}`
     nextDayDeg3.innerHTML= `${temper_3} °`
+    nextText3.innerHTML =`${text_3}`
+
     weatherImgDay(nextIcon3, text_3.toLowerCase())
 
     //Astronomy - ADD Sunrise/Sunset
@@ -235,11 +264,9 @@ const geoLocal = function () {
 
 geoLocalBtn.addEventListener("click", geoLocal);
 
-searchBtn.addEventListener("click", function (e) {
+searchBtn_2.addEventListener("click", function (e) {
   e.preventDefault();
   
   console.log(searchInput.value);
   getWeather(searchInput.value);
 });
-
-
