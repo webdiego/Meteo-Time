@@ -272,7 +272,7 @@ const geoLocal = function () {
     getCity(lat, lng);
   }).catch((err)=>{
     console.log(err);
-    renderError(`Where are you??🤨 Try again!`)
+    renderError(`Where are you?? 🤨 Try again! Let us find you 😀 `)
   });
 };
 
