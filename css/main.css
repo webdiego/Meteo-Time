@@ -62,7 +62,7 @@ body {
 
 .loading-text {
   font-size: 2rem;
-  transform: translateY(550%);
+  transform: translateY(250%);
   margin: 1rem;
 }
 

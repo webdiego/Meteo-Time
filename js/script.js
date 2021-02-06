@@ -74,7 +74,7 @@ const weatherImgDay = function (el,text) {
     el.src='./img/sun.png'
   }else if(text.includes('partly cloudy')){
     el.src = './img/sunclouds.png'
-  }else if (text.includes('mist' || 'fog')) {
+  }else if (text.includes('Mist' || 'fog')) {
     el.src = "./img/mist.png";
   }
 };
@@ -110,7 +110,7 @@ const isDayTime = function (dayTime ,el, text) {
 };
 //RENDER ERROR
 const renderError = function(msg){
-  loading_text.innerHTML = msg
+  loading_text.innerHTML =`${msg}`
 }
 
 //*FUNCTION CAPITALIZE WORD
@@ -278,7 +278,7 @@ const geoLocal = function () {
     getCity(lat, lng);
   }).catch((err)=>{
     console.log(err);
-    renderError(`Where are you?? 🤨 Try again!  Let us find you , Enable geolocation  😀 `)
+    renderError(`Where are you?? 🤨  Try again! <br> Let us find you, Enable geolocation 😀 or type your city!`)
   });
 };
 
