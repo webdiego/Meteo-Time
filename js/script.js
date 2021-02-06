@@ -64,7 +64,7 @@ const weatherImgDay = function (el,text) {
     el.src = "./img/snow.png";
   } else if (text.includes("light" && "rain")) {
     el.src = "./img/lightrain.png";
-  } else if (text.includes( 'overcast' || 'mist' || 'fog')) {
+  } else if (text.includes( 'overcast')) {
     el.src = "./img/clouds.png";
   }else if(text.includes('light' && 'rain' || 'moderate' && 'rain' || 'light' && 'sleet')){
     el.src = "./img/lightrain.png";
@@ -74,6 +74,8 @@ const weatherImgDay = function (el,text) {
     el.src='./img/sun.png'
   }else if(text.includes('partly cloudy')){
     el.src = './img/sunclouds.png'
+  }else if (text.includes('mist' || 'fog')) {
+    el.src = "./img/mist.png";
   }
 };
 const weatherImgNight = function (el,text) {
@@ -127,6 +129,10 @@ const addLoad = function () {
 };
 const removeLoad = function () {
   loading.classList.add("none");
+  loading_text.innerHTML =`
+  <h2 class=" loading flex justify-center items-center">
+  <span class="ball rotate-right"> </span>
+ </h2>`
   cover.classList.remove("none");
 };
 
@@ -141,7 +147,7 @@ const removeLoad = function () {
 
 // }
 
-//*GET CORDS
+//*GET CORDS GEO
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -276,6 +282,7 @@ const geoLocal = function () {
   });
 };
 
+//FUNCTION BTN
 geoLocalBtn.addEventListener("click", geoLocal);
 
 searchBtn_2.addEventListener("click", function (e) {
