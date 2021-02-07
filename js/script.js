@@ -165,14 +165,13 @@ const getWeather = async function (city,subCity) {
     const resToday = await dataToday.json();
     console.log(resToday);
     const {
-      current: {
-        condition: { text: text },
-      },
-    } = resToday;
- 
-    const {
+      current: { condition: { text: text }},
       current: { temp_c: temperature },
     } = resToday;
+ 
+    // const {
+    //   current: { temp_c: temperature },
+    // } = resToday;
     locationTemperature.innerHTML = `${temperature}`;
     //ADD Location name in UI
     const {
@@ -191,7 +190,7 @@ const getWeather = async function (city,subCity) {
       current: { humidity: humidity, wind_kph: wind, is_day: day },
     } = resToday;
 
-    isDayTime(day, weatherIcon ,text.toLowerCase());
+     isDayTime(day, weatherIcon, text.toLowerCase());
     humidityEl.innerHTML = `${humidity} %`;
     windEl.innerHTML = `${wind} Km/h`;
     
@@ -290,9 +289,7 @@ searchBtn_2.addEventListener("click", function (e) {
   getWeather(searchInput.value.trim());
 });
 searchInput.addEventListener("keydown", function (e) {
-  
-  console.log(e);
-  if(e.keyCode === 13){
+    if(e.keyCode === 13){
     getWeather(searchInput.value.trim());
   }
 });
