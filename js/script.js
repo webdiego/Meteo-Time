@@ -58,23 +58,21 @@ searchBtn.addEventListener('click', function(){
 
 //ICONS BASE ON DAY OR NIGHT AND CONDITIONS
 const weatherImgDay = function (el,text) {
-  if (text.includes("rain" && "heavy" || 'Torrential' && 'rain')) {
+  if (text.includes("rain" && "heavy" || 'torrential' && 'rain')) {
     el.src = "./img/heavyrain.png";
   } else if (text.includes("snow" || 'blizzard' || 'freezing' && 'drizzle' || 'ice' )) {
     el.src = "./img/snow.png";
-  } else if (text.includes("light" && "rain")) {
+  } else if (text.includes("light" && "rain"|| 'moderate' && 'rain' || 'light' && 'sleet')) {
     el.src = "./img/lightrain.png";
-  } else if (text.includes( 'overcast')) {
+  } else if (text.includes( 'overcast' || 'cloudy')) {
     el.src = "./img/clouds.png";
-  }else if(text.includes('light' && 'rain' || 'moderate' && 'rain' || 'light' && 'sleet')){
-    el.src = "./img/lightrain.png";
   }else if(text.includes('thundery' || 'thunder' )){
     el.src = "./img/thunderstorm2.png"
   }else if(text.includes('sunny')){
     el.src='./img/sun.png'
   }else if(text.includes('partly cloudy')){
     el.src = './img/sunclouds.png'
-  }else if (text.includes('Mist' || 'fog')) {
+  }else if (text.includes('mist' || 'fog')) {
     el.src = "./img/mist.png";
   }
 };
